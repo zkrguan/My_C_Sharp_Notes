@@ -1,0 +1,7 @@
+C:\Users\zkrgu\OneDrive\Desktop\2023_Fall\CPA\WEB524\W1\Week 1 - Code Examples(1)\Strings\Strings\bin\Debug\Strings.exe.config
+C:\Users\zkrgu\OneDrive\Desktop\2023_Fall\CPA\WEB524\W1\Week 1 - Code Examples(1)\Strings\Strings\bin\Debug\Strings.exe
+C:\Users\zkrgu\OneDrive\Desktop\2023_Fall\CPA\WEB524\W1\Week 1 - Code Examples(1)\Strings\Strings\bin\Debug\Strings.pdb
+C:\Users\zkrgu\OneDrive\Desktop\2023_Fall\CPA\WEB524\W1\Week 1 - Code Examples(1)\Strings\Strings\obj\Debug\Strings.csproj.AssemblyReference.cache
+C:\Users\zkrgu\OneDrive\Desktop\2023_Fall\CPA\WEB524\W1\Week 1 - Code Examples(1)\Strings\Strings\obj\Debug\Strings.csproj.CoreCompileInputs.cache
+C:\Users\zkrgu\OneDrive\Desktop\2023_Fall\CPA\WEB524\W1\Week 1 - Code Examples(1)\Strings\Strings\obj\Debug\Strings.exe
+C:\Users\zkrgu\OneDrive\Desktop\2023_Fall\CPA\WEB524\W1\Week 1 - Code Examples(1)\Strings\Strings\obj\Debug\Strings.pdb
