@@ -14,24 +14,6 @@ C# is type safe and pure OOP language, and its curly brace syntax is similar to 
 
 5. Everything is inside one file, no .h .cpp
 
-## .Net Framework
-
-![How C# codes turned into .net programs](image.png)
-
-1. C# is not only launguage supported by .Net Framework
-
-2. C# is compiled into intermediate language first (IL), and the extension is .exe or .dll.  (This is .net language file) (kinda sounds similar to java byte code, but this must be different from Java.)
-
-3. Common Language Runtime (CLR) performs JIT (Just in time) compilation to convert intermediate language into machine instructions.
-
-4. As long as the machine has .net framework, it can run the intermediate code file. (Again, sounds like JVM and Java Byte Code).
-
-5. CLR provides Garbage collection, exception handling, and resource management.
-
-6. As each line is compiling, the code is running. This makes the run time is slower than C++ and C.
-
-7. Managed code(like C is unmanaged code), compiling and checking. Memory location is handled by the framework, which means no pointer to play around.
-
 ## Almost everything inside C# is inside class
 
 The class is the most fundamental container or building block.
@@ -164,3 +146,71 @@ simply just call the ToString method, and even the number has the that method.
 ```c#
 string foo = 123.ToString()
 ```
+
+## .Net Framework
+
+![How C# codes turned into .net programs](image.png)
+
+1. C# is not only launguage supported by .Net Framework
+
+2. C# is compiled into intermediate language first (IL), and the extension is .exe or .dll.  (This is .net language file) (kinda sounds similar to java byte code, but this must be different from Java.)
+
+3. Common Language Runtime (CLR) performs JIT (Just in time) compilation to convert intermediate language into machine instructions.
+
+4. As long as the machine has .net framework, it can run the intermediate code file. (Again, sounds like JVM and Java Byte Code).
+
+5. CLR provides Garbage collection, exception handling, and resource management.
+
+6. As each line is compiling, the code is running. This makes the run time is slower than C++ and C.
+
+7. Managed code(like C is unmanaged code), compiling and checking. Memory location is handled by the framework, which means no pointer to play around.
+
+## ASP.Net MVC
+
+1. ASP.Net is convention based ( which essentially means you won't see any thing like app.get("/url",callBackFunc) )
+You will see something like this. (<https://www.c-sharpcorner.com/article/convention-routing-in-asp-net-mvc-5/>)
+
+![Alt text](image-2.png)
+
+The .net framework will automatically hosts controllers.
+
+2. Front Controller Pattern.
+
+This is like middleware in node.js servers. Service runs before the controller instantiated.
+
+Basically, this "middleware" will be invoked every time when there is a request.
+
+Front Controller will look at the URL, the URL indicates what controllers and what services inside the controller should run. In this step, the controller might need data from the model. Then the processed data is passed into a view, and rendered by a view engine.
+
+If there is no controllers found for this URL, it might be a image file or PDF file.
+
+If it is not a file, then 404 will be returned.
+
+## MVC MVC, what is it actually?
+
+1. Controller (It is like a commando in the battle field)
+    A class contains functions.
+    Front controller inspects the URL, and decide which controller should be invoked.
+    The functions will handle the requests when they come in.
+    Each function/method will return a unique page.
+
+2. Model
+    A class, or an object contains different properties (public variables) on it.
+    A model holds and manages the app's data.
+    Data persisted in a storage is modelled by **design model classes**. ( Like node's mongoose schema )
+    Data that is sent to the user or gathered from user is modelled by **view model classes**. (Sounds like a DTO to me, but DTO is only used in user's input)
+
+3. View
+    Basically, the HTML should generated from the controller.
+
+    A view is a source code file that contains user interface code.
+
+    A view is like the template describes the page should look like.
+
+    In the template, you can pass the variables or a model into the template. So the html will be generated based on the value of that template.
+
+    View are not directly accessible, you can not use browser to directly see the contents inside a view (but PHP can because it is file based.) ( think about can you use browser to render .hbs files?)
+
+    Not all views render HTML, not all views require data from the controller.
+
+    Just like node.js has handlebars, .net has Razor.
