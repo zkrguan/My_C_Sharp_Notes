@@ -31,7 +31,7 @@ Constructor is just like in C++ and Java, if you don't specify a consturctor, th
 Default is private inside a class.
 
 Notice the way declare a default setter and getter is kinda like js/ts?
-![A typical class in C sharp](image-1.png)
+![A typical class in C sharp](image-3.png)
 
 ## Generics (like templates in C++)
 
