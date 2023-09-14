@@ -58,11 +58,11 @@ View model classes name convention and repo structure:
 
 ## Solution to converting Design Model <-> View Model => Auto Mapper
 
-    Why use this? So, you don’t have to manually convert from one to another every time.
-    Convention-based mapper =>
-        When it maps between objects, it simply maps/assigns value if both objects property types and property names match.
-        Non-matching? Ignored!
-    ( More contents will be covered in the following week's notes )
+Why use this? So, you don’t have to manually convert from one to another every time.
+Convention-based mapper =>
+    When it maps between objects, it simply maps/assigns value if both objects property types and property names match.
+    Non-matching? Ignored!
+( More contents will be covered in the following week's notes )
 
 
 ## Code demo in class:
@@ -79,12 +79,16 @@ Views: razor templates.
 ### Data -> DataContext
 
 Data -> DataContext This is where you define the actual table with design model classes.
+
 ![Alt text](image-3.png)
+
 You inherit from DbContext Class.
 You are declaring a new property called Albums. The Data type is DbSet Album.
 Getter and setter are all default.
+
 ![Alt text](image-4.png)
-Each one of these is a table.
+
+Each one of these DbSet Instance is a table.
 
 ### OnModelCreating(…)
 
@@ -95,12 +99,18 @@ But here we define the relationships between tables, define the constraints of t
 ### A sample of design model
 
 Move onto the design model -> customer.cs
+
 ![Alt text](image-6.png)
+
 \[Required\] is like decorators in nest.js or java. Setting constraints for the column.
+
 Also DB data type needs to match the designModel class datatype.
+
 ![Alt text](image-7.png)
+
 Also, put a question mark beside the return type. This means it could return a null value back. So, there won’t be any dummy values.
 It makes sense that the require annotator is not put above because the
+
 ![Alt text](image-8.png)
 
 ### Inside the controller
