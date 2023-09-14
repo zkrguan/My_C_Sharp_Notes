@@ -68,6 +68,7 @@ Convention-based mapper =>
 ## Code demo in class:
 
 ![A sample repo of .net MVC](image-2.png)
+
 App_start contains setup and logics for front controller, and etc.
 App_data contains our dev DB in local. Once build and run. It will start connect to APP_Data.
 Contents: Front end assets.
