@@ -1,4 +1,4 @@
-# Associated Data and implementation in .Net MVC
+# Associated Data - render, display, add, edit
 
 ## Relationships between entities
 
@@ -278,7 +278,7 @@ They start caring in the getOne(), so we should use include() method inside the 
 
 ![Alt text](image-32.png)
 
-## Lazy loading vs Eager loading:
+## Lazy loading vs Eager loading
 
 ![Alt text](image-33.png)
 
@@ -289,7 +289,6 @@ Query was not triggered at line 97, it was triggered when the coders used ToArra
 ![Alt text](image-34.png)
 
 To list() also works. Using a range based for loop. Also the Automapper kicks in.
-
 
 *Eager loading* ->
 
@@ -307,13 +306,13 @@ Once it reached foreach, query will be executed as one, and associated data Team
 
 *Lazy loading* ->
 
-1.	No include() inside the query
+1. No include() inside the query
 
-2.	A query includes associated data.
+2. A query includes associated data.
 
-3.	The query will not immediately fetch the associated data.
+3. The query will not immediately fetch the associated data.
 
-4.	Instead, it will wait for an attempt to access the associated object or collections.
+4. Instead, it will wait for an attempt to access the associated object or collections.
 (This is used for the apps like tinder)
 
 This time you did not use include. Query was executed at for each.
@@ -331,3 +330,163 @@ In MS EF, the Lazy loading by default is on!!! But the performance will be bad.
 Don’t mix deferred execution.
 
 Deferred execution is about writing an query and it won’t be executed right away. It will be executed only when needed in some operations.
+
+## Associated data - view template and scaffolder
+
+The scaffolder does a reasonably good job at rendering display only views.
+
+But if we have association data, scaffolder will not work.
+
+When working with associated data, the selection element is needed.
+
+the elements that can be scaffolded and not be scaffolded.
+
+![Alt text](image-38.png)
+
+### Manually add the html elements into the razor template
+
+1. Scaffold whatever it can first
+
+2. Then create a simple collection of items or an item and pass the it to the view.
+
+3. Handwrite logics to render the passed in data.
+
+### View model
+
+![Alt text](image-39.png)
+
+## Add use case
+
+"Add new" use case when there is an association property involved.  As a result, you must have a property referring to the associated object.
+
+We will continue to use the one-to-many relationships from the previous notes.
+
+One make can have many cars, one car only belongs to one make.
+
+For example, when adding a car into the DB, there must be a related Manufacturer.
+
+### Walk through example
+
+#### 1. Setting up Navigation Properties in Design Models
+
+When there's an association between two entities, in the **design models**, navigation properties must be set up on both sides.
+
+#### 2. View Models and Association
+
+In view models, set up the association once if it's only needed for one direction. For example, when adding a new vehicle with a required make, the ViewModelClass may contain a "to-one" relationship like this:
+
+```csharp
+// ViewModelClass
+public int AssociatedDesignModelNameId { get; set; }
+```
+
+![Alt text](image-40.png)
+
+#### 3.A. Starting with an empty context
+
+The flow of the application is like allowing the user to start with an empty context and begin the process of adding a vehicle. As a result, the user must choose one of the item selection elements.
+
+![Alt text](image-41.png)
+
+#### 3.B. Choose a specific Manufacturer from the list then add a new vehicle for that manufacturer. (Alternative path)
+
+![Alt text](image-42.png)
+
+If the user already has selected the make, then you don’t need to show the drop down again. Because it has been selected before even entering the page.
+
+![Alt text](image-43.png)
+
+Which one is more correct? Depending on your user habit and app flow.
+
+#### 4.A. Backend flow
+
+![Alt text](image-44.png)
+
+1. AddViewModel: Because we have association, so need an property to associate with the other class. Id is normally the best approach.
+
+![Alt text](image-45.png)
+
+2. AddFormViewModel: is for rendering the form Populate the Drop downs and select list.
+
+![Alt text](image-46.png)
+
+3. Manager method : make sure you validate the associated manufacture object before attempting to add the new vehicle object.
+
+![Alt text](image-47.png)
+
+4.	Controller: use the methods from the manager.
+
+![Alt text](image-48.png)
+
+#### 4.B. Backend flow
+
+Step 1 – 3 are almost same as 4.A.
+
+Step 2 is slightly different ->  It needs to know which Manufacturer was selected from the previous step.
+
+Also, you will need a hidden field for manufacturer ID. MakeName is just for displaying.
+
+![Alt text](image-49.png)
+
+We know what the context is
+
+![Alt text](image-50.png)
+
+Step 4:
+
+![Alt text](image-51.png)
+
+You need to set the controller name properly, otherwise it looks like the controller is for creating the manufacturer.
+
+When we are scaffolding, the last two fields are not correct.
+
+You need to set the data annotation as hidden for id.
+
+And make the Manufacture read only, for displaying on the top to describe the page.
+
+![Alt text](image-52.png)
+
+![Alt text](image-53.png)
+
+The post method:
+
+![Alt text](image-54.png)
+
+PRG
+
+## Attribute Routing
+
+Attribute Routing can change the logics behind the frontController pattern
+
+e.g. if you don't like the way front controller automatically generated URL
+
+![Alt text](image-55.png)
+
+You could use attribute routing to change the POST route to this
+
+![Alt text](image-56.png)
+
+Eventually, the route could look like express.
+
+Convention-based routing and Attribute routing is NOT either or. You can use both.
+
+How to implement?
+
+1. We can add the attribute to the controller method.
+
+![Alt text](image-57.png)
+
+2. By default attribute routing is turned off.
+RouteConfig class => register routes method => routes.MapMvcAttributeRoutes()
+
+e.g.
+1. : 
+
+![Alt text](image-58.png)
+
+2. In Controller:
+
+![Alt text](image-59.png)
+
+3. You need to make sure 2 routes for Add used same attribute routing.
+Otherwise, only one of them would work, the other will still use the same convention-based routing.
