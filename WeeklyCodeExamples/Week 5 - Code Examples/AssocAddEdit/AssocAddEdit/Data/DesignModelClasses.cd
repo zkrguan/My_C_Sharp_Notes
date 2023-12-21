@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="AssocAddEdit.Data.Classification">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Classification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssocAddEdit.Data.Country">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Data\Country.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Manufacturers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AssocAddEdit.Data.Manufacturer">
+    <Position X="3.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAgAAgAAAAAAQAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Manufacturer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Country" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Vehicles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AssocAddEdit.Data.Vehicle">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCAAAAAAAAgAAAAAQAAAAAAAAAACAAQAgAAAAAAAA=</HashCode>
+      <FileName>Data\Vehicle.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Manufacturer" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
