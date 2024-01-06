@@ -1,0 +1,2 @@
+C:\Users\zkrgu\OneDrive\Desktop\2023_Fall\CPA\WEB524\CodeExample\Week 10 - Code Examples\PhotoProperty\PhotoProperty\obj\Debug\PhotoProperty.csproj.AssemblyReference.cache
+C:\Users\zkrgu\OneDrive\Desktop\2023_Fall\CPA\WEB524\CodeExample\Week 10 - Code Examples\PhotoProperty\PhotoProperty\obj\Debug\PhotoProperty.csproj.CoreCompileInputs.cache

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CustomStoreForCarBusiness.Data.Country">
+    <Position X="1" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Data\Country.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Manufacturers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CustomStoreForCarBusiness.Data.Manufacturer">
+    <Position X="4.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAgAAgAAAAAAQAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Manufacturer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Country" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Vehicles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CustomStoreForCarBusiness.Data.Vehicle">
+    <Position X="7.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCAAAAAAAAgAAAAAAAAAAAAAAAACAAQAgAAAAAAAA=</HashCode>
+      <FileName>Data\Vehicle.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Manufacturer" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
